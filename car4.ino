@@ -1,6 +1,7 @@
 #include <AFMotor.h>
 int mspeed=150; //設置速度
 int sspeed=50;  //設置初始速度
+int tspeed=120; //設置轉彎速度
 
 /*AF_DCMotor motorname(portnum,freq)
 这是一个建立一个直流电机的函数。在程序中需要声明每个电机各一次。像下面的例子中一样，每个电机必须使用不同的名字。
@@ -87,12 +88,12 @@ void loop() {
  delay(1000);
   
   //Serial.print("tock");
-
+  //右轉彎
   m1.run(BACKWARD);
   m2.run(BACKWARD);
   m3.run(FORWARD);
   m4.run(FORWARD);
-  for (i=0; i<mspeed; i++) {
+  for (i=0; i<tspeed; i++) {
     m1.setSpeed(i); 
     m2.setSpeed(i); 
     m3.setSpeed(i); 
@@ -100,7 +101,7 @@ void loop() {
     delay(10);
  }
  
-  for (i=mspeed; i!=0; i--) {
+  for (i=tspeed; i!=0; i--) {
     m1.setSpeed(i); 
     m2.setSpeed(i); 
     m3.setSpeed(i); 
